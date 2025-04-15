@@ -1,0 +1,16 @@
+resources:
+  - ../../base/mysql
+  - ../../base/wordpress
+
+patches:
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: wordpress-deployment
+    patch: |
+      - op: replace
+        path: /spec/replicas
+        value: 3
+      
+      

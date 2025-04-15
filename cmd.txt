@@ -19,3 +19,8 @@ cd mysql/wordpress :
 (logs: kubectl describe pod <nom-du-pod> -n wordpress)
 (kubectl delete pod -n wordpress -l app=mysql)
 (kubectl get deployment mysql-deployment -n wordpress -o yaml | grep mysql-secret)
+
+Bonus:
+- cd kustomize
+- kubectl apply -k overlays/dev
+- kubectl get deploy -n wordpress
