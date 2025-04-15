@@ -1,3 +1,21 @@
 kubectl get pod -A
 
-* Encodage : base64encode.org
+* Encodage : 
+- base64encode.org
+- echo -n 'wordpress' | base64
+
+cd manifest : 
+- kubectl create -f ./wordpress-namespace.yaml
+- kubectl get namespaces
+
+cd mysql/wordpress : 
+- kubectl apply -f .
+- kubectl get pods -n wordpress
+- kubectl get all -n wordpress
+- kubectl get pv,pvc -n wordpress
+- ls -l /data/wordpress
+- ls -l /mysql-data
+- kubectl get svc -n wordpress
+(logs: kubectl describe pod <nom-du-pod> -n wordpress)
+(kubectl delete pod -n wordpress -l app=mysql)
+(kubectl get deployment mysql-deployment -n wordpress -o yaml | grep mysql-secret)

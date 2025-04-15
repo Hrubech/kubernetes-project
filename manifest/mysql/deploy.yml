@@ -2,9 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: wordpress
-  name: mysql-deploy
+  name: mysql-deployment
   labels:
     app: mysql
+    tier: database
 spec:
   replicas: 1
   selector:
@@ -20,35 +21,35 @@ spec:
         tier: database
     spec:
       containers:
-      - image: mysql:5.7
-        name: mysql
+      - name: mysql
+        image: mysql:5.7
         env:
         - name: MYSQL_ROOT_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: secret
+              name: mysql-secret
               key: password
         - name: MYSQL_DATABASE
           valueFrom:
             secretKeyRef:
-              name: secret
+              name: mysql-secret
               key: database
         - name: MYSQL_USER
           valueFrom:
             secretKeyRef:
-              name: secret
+              name: mysql-secret
               key: user
         - name: MYSQL_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: secret
+              name: mysql-secret
               key: password
         - name: MYSQL_RANDOM_ROOT_PASSWORD
           value: "yes"
         ports:
         - containerPort: 3306
           name: mysql
-        resouces:
+        resources:
           requests:
             memory: "256Mi"
             cpu: "250m"
