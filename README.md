@@ -49,6 +49,13 @@ Déploiement complet d'un site WordPress sur un cluster Kubernetes avec persista
 
 ## 🚀 Déploiement
 
+> Cloner le projet et déplacez vous dans le dossier manifest :
+
+```bash
+git clone 
+cd kubernetes-project/manifest
+```
+
 > Applique les manifestes dans cet ordre :
 
 ```bash
@@ -74,7 +81,7 @@ kubectl get svc -n wordpress
 ```
 
 Accédez à l’interface via :  
-**http://<IP-du-node>:<PORT>**
+**http://<IP_du_node>:<WordPress_NodePort>**
 
 Si vous utilisez Minikube :
 
@@ -104,7 +111,7 @@ minikube service wordpress-service -n wordpress
 
 ## 👨‍💻 Auteur
 
-**[Hrubech HOMBESSA]**  
+**Hrubech HOMBESSA**  
 💼 DevOps Engineer / Full Stack Developer  
 🔗 [github.com/Hrubech](https://github.com/Hrubech)
 
