@@ -52,7 +52,7 @@ Déploiement complet d'un site WordPress sur un cluster Kubernetes avec persista
 > Cloner le projet et déplacez vous dans le dossier manifest :
 
 ```bash
-git clone 
+git clone https://github.com/Hrubech/kubernetes-project.git
 cd kubernetes-project/manifest
 ```
 
