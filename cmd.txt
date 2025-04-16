@@ -24,3 +24,6 @@ Bonus:
 - cd kustomize
 - kubectl apply -k overlays/dev
 - kubectl get deploy -n wordpress
+
+Cleanup:
+- kubectl delete -k overlays/dev
